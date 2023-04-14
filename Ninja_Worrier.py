@@ -52,7 +52,7 @@ height=float(input("Please Enter the Height of each Storey in meters : "))
 storey=int(input("Please Enter the Number of Storey : "))
 totalHeight = storey*height
 
-bay_X=int(input("Please Enter the Number of Bay : "))
+bay_X=int(input("Please Enter the Number of Bay in X direction : "))
 bay = bay_X
 print('')
 print('---||---')
@@ -234,7 +234,7 @@ elif imposedLoad>3:
 weightOfRoof = (weightOfcolumns/2) + weightOfSlab + weightOfBeams + ((25/100)*liveLoad)
 
 ######## Total weight of building
-totalWeight = ((storey-1)*(weightOfSlab + weightOfcolumns + weightOfBeams)) + weightOfRoof
+totalWeight = ((storey-1)*(weightOfSlab + weightOfcolumns + weightOfBeams + liveLoad)) + weightOfRoof
 
 
 
@@ -259,6 +259,37 @@ print('Design horizontal seismic coefficient (Ah) =',A_h)
 print('Design Base Shear Vb =',Vb)
 
 
+force=[]
+
+hh = 0
+sumOffloorWeight = 0
+for i in range(1, storey+1):
+    hh += height
+    hSquare = hh*hh
+    print('height of floor',i,'is',hh)
+    if i!= storey:
+        wj = (weightOfSlab + weightOfcolumns + weightOfBeams + liveLoad)
+    else:
+        wj =  weightOfRoof
+    sumOffloorWeight += wj*hSquare
+   
+print()
+hh2 = 0
+for i in range(1, storey+1):
+    hh2 += height
+    h2Square = hh2*hh2
+    print('height of floor',i,'is',hh2)
+    if i!= storey:
+        wi = (weightOfSlab + weightOfcolumns + weightOfBeams + liveLoad)
+    else:
+        wi =  weightOfRoof
+    Q = ((wi*h2Square)/sumOffloorWeight)*Vb
+    Q=float("{:.2f}".format(Q))
+    force.append(Q)
+
+print()
+print('Forces :',force)
+    
 
 
 
@@ -274,14 +305,14 @@ print('Design Base Shear Vb =',Vb)
     
     
     
-print('')
-print('---||---')
-force=[]
-print("please input the Forces on Storey :-")
-for i in range(storey):
-    print('Storey ',i+1,end=' ')
-    a=float(input("Force = "))
-    force.append(a)
+# print('')
+# print('---||---')
+# force=[]
+# print("please input the Forces on Storey :-")
+# for i in range(storey):
+#     print('Storey ',i+1,end=' ')
+#     a=float(input("Force = "))
+#     force.append(a)
 
 
 
