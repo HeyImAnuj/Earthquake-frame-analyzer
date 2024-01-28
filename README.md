@@ -1,6 +1,6 @@
 # Earthquake-Resistant-Frame-Analyzer
-This is a major project on which we are currently working.
-Our aim is to develop fully automated application which by itself find the seismic and wind forces acting on buildings and calculate the shear forces and bending moments in the frame of buildings.
+This is a extended version of our major project on which we have worked in 7th semester.
+Our aim is to upgrade previous version of code which was used to find the seismic and wind forces acting on buildings and calculate the shear forces and bending moments in the frame of buildings, and now in this extended version we are going to form earthquake resistant frames for multistorey buildings, of which respective calculations will we done by our model.
 the model is created using Python programming language and its relevant libraries like:
 # MatplotLib
 # Numpy
