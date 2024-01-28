@@ -1,4 +1,4 @@
-# Shear-Foce-and-Bending-Moment-Analyzer-in-Building-Frames
+# Earthquake-Resistant-Frame-Analyzer
 This is a major project on which we are currently working.
 Our aim is to develop fully automated application which by itself find the seismic and wind forces acting on buildings and calculate the shear forces and bending moments in the frame of buildings.
 the model is created using Python programming language and its relevant libraries like:
